@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Daily min-max temperature range. One rounded rect per day, filled with a vertical gradient whose stops sample a shared temperature colour scale (colour locked to the y-axis). X axis is the real date, sorted and formatted in Vega so ordering is reliable.",
+  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+  "background": "transparent",
+  "padding": 5,
+
+  "data": [
+    { "name": "dataset" },
+    {
+      "name": "source",
+      "source": "dataset",
+      "transform": [
+        { "type": "filter", "expr": "isValid(datum['Min']) && isValid(datum['Max'])" },
+        { "type": "collect", "sort": { "field": "Date" } }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": { "data": "source", "field": "Date", "sort": true },
+      "range": [ 0, { "signal": "width" } ],
+      "paddingInner": 0.4,
+      "paddingOuter": 0.2
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": { "data": "source", "fields": [ "Min", "Max" ] },
+      "range": [ { "signal": "height" }, 0 ],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "tcol",
+      "type": "linear",
+      "domain": [ -10, 0, 10, 17, 24, 33 ],
+      "range": [ "#3E6FD9", "#2FA8C8", "#5EC4A0", "#E0B83C", "#E68A32", "#D04646" ],
+      "clamp": true
+    }
+  ],
+
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "x",
+      "domain": false,
+      "ticks": false,
+      "labelPadding": 8,
+      "labelColor": "#46566F",
+      "labelFont": "'Trebuchet MS'",
+      "labelFontSize": 11,
+      "encode": {
+        "labels": {
+          "update": {
+            "text": { "signal": "pbiFormat(datum.value, 'ddd dd')" }
+          }
+        }
+      }
+    },
+    {
+      "orient": "left",
+      "scale": "y",
+      "title": "Temperature",
+      "titleColor": "#46566F",
+      "titleFont": "'Trebuchet MS'",
+      "titleFontWeight": "normal",
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "grid": true,
+      "gridColor": "#E3E9F1",
+      "gridOpacity": 0.9,
+      "domain": false,
+      "ticks": false,
+      "labelColor": "#6B7A92",
+      "labelFont": "'Trebuchet MS'",
+      "labelFontSize": 10,
+      "labelExpr": "datum.value + '\u00b0'"
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": { "data": "source" },
+      "encode": {
+        "update": {
+          "xc": { "scale": "x", "field": "Date", "band": 0.5 },
+          "width": { "signal": "bandwidth('x')" },
+          "y": { "scale": "y", "field": "Max" },
+          "y2": { "scale": "y", "field": "Min" },
+          "cornerRadius": {
+            "signal": "min( bandwidth('x')/2, abs(scale('y', datum.Min) - scale('y', datum.Max))/2 )"
+          },
+          "fill": {
+            "signal": "{ gradient:'linear', x1:0, y1:0, x2:0, y2:1, stops:[ {offset:0, color:scale('tcol', datum.Max)}, {offset:0.1667, color:scale('tcol', datum.Max - 0.1667*(datum.Max-datum.Min))}, {offset:0.3333, color:scale('tcol', datum.Max - 0.3333*(datum.Max-datum.Min))}, {offset:0.5, color:scale('tcol', (datum.Max+datum.Min)/2)}, {offset:0.6667, color:scale('tcol', datum.Max - 0.6667*(datum.Max-datum.Min))}, {offset:0.8333, color:scale('tcol', datum.Max - 0.8333*(datum.Max-datum.Min))}, {offset:1, color:scale('tcol', datum.Min)} ] }"
+          },
+          "tooltip": {
+            "signal": "{'Date': utcFormat(toDate(datum.Date), '%a %d %b'), 'High': format(datum.Max, '.0f') + '\u00b0', 'Low': format(datum.Min, '.0f') + '\u00b0'}"
+          }
+        }
+      }
+    }
+  ]
+}

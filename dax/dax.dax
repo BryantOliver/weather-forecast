@@ -1,0 +1,77 @@
+
+Lookup current weather icon in list, return svg string
+_Icon_Current = 
+VAR code = SELECTEDVALUE( WeatherCurrent[current.weather_code] )
+VAR ink  = [_Colour_Light]
+VAR codepath = LOOKUPVALUE( WeatherCode[svg_path], WeatherCode[weather_code], code )
+RETURN "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='" & ink & "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>" & codepath & "</svg>"
+
+Get specific icon, return svg string
+_Icon_Pin_Light = 
+VAR ink = [_Colour_Light]
+RETURN
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' "
+        & "fill='none' stroke='" & ink & "' stroke-width='2' "
+        & "stroke-linecap='round' stroke-linejoin='round'>"
+        & LOOKUPVALUE ( Icons[svg_path], Icons[icon], "pin" ) & "</svg>"
+
+Current Weather
+_Current_WeatherCode = SELECTEDVALUE(WeatherCurrent[current.weather_code])
+_Current_Temperature = SELECTEDVALUE(WeatherCurrent[current.temperature_2m], BLANK())
+_Current_PrecipitationProbability_Max = 
+VAR currentdate = [_Current_Date]
+RETURN
+    CALCULATE (
+        SELECTEDVALUE ( WeatherDaily[daily.precipitation_probability_max], BLANK () ),
+        FILTER (
+            ALL ( WeatherDaily[daily.date] ),
+            WeatherDaily[daily.date] = currentdate
+        )
+    )
+_Current_Time = 
+VAR offsetseconds = SELECTEDVALUE ( CityInfo[utc_offset_seconds] )
+RETURN IF ( ISBLANK ( offsetseconds ), BLANK (), UTCNOW () + offsetseconds / 86400 )
+_Current_Date = 
+VAR t = [_Current_Time]
+RETURN IF ( ISBLANK ( t ), BLANK (), DATE ( YEAR ( t ), MONTH ( t ), DAY ( t ) ) )
+
+Daily Weather
+_Daily_Temperature = AVERAGE ( WeatherDaily[daily.temperature_2m] )
+_Daily_CloudCover = 
+VAR d = [_Current_Date]
+RETURN
+    CALCULATE (
+        SELECTEDVALUE ( WeatherDaily[daily.cloud_cover] ),
+        FILTER ( ALL ( WeatherDaily[daily.date] ), WeatherDaily[daily.date] = d )
+    )
+
+Hourly Weather
+_Hourly_Temperature = MAX(WeatherHourly[hourly.temperature_2m])
+_Hourly_IsInNext12 = 
+VAR nowutc  = UTCNOW ()
+VAR anchor  = INT ( nowutc ) + TIME ( HOUR ( nowutc ), 0, 0 )
+VAR rowutc  = SELECTEDVALUE ( WeatherHourly[hourly.datetimeUTC] )
+RETURN
+    IF (
+        NOT ISBLANK ( rowutc ) && rowutc >= anchor && rowutc < anchor + ( 12 / 24 ),
+        1
+    )
+
+Sun Progress
+_Sun_Progress = 
+VAR sr = [_Today_Sunrise]
+VAR ss = [_Today_Sunset]
+VAR now = [_Current_Time]
+RETURN MIN ( MAX ( DIVIDE ( now - sr, ss - sr ), 0 ), 1 )
+
+Calculated Columns
+daily.temperature_2m = 
+VAR d = WeatherDaily[daily.date]
+VAR c = WeatherDaily[city_id]
+RETURN
+    CALCULATE (
+        AVERAGE ( WeatherHourly[hourly.temperature_2m] ),
+        WeatherHourly[hourly.date] = d,
+        WeatherHourly[city_id]     = c
+    )
+
