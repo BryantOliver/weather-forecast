@@ -1,0 +1,142 @@
+[
+  {
+    "weather_code": 0,
+    "description": "Clear sky",
+    "svg_path": "<circle cx='16' cy='16' r='6'/><path d='M16 3v3M16 26v3M3 16h3M26 16h3M6.5 6.5l2.1 2.1M23.4 23.4l2.1 2.1M6.5 25.5l2.1-2.1M23.4 8.6l2.1-2.1'/>"
+  },
+  {
+    "weather_code": 1,
+    "description": "Mainly clear",
+    "svg_path": "<circle cx='12' cy='11' r='4.5'/><path d='M12 3v2M5 11H3M6.3 5.3l1.4 1.4M17.7 5.3l-1.4 1.4'/><path d='M11 24a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 22 16.5 4 4 0 0 1 21.5 24z'/>"
+  },
+  {
+    "weather_code": 2,
+    "description": "Partly cloudy",
+    "svg_path": "<circle cx='12' cy='11' r='4.5'/><path d='M12 3v2M5 11H3M6.3 5.3l1.4 1.4M17.7 5.3l-1.4 1.4'/><path d='M11 24a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 22 16.5 4 4 0 0 1 21.5 24z'/>"
+  },
+  {
+    "weather_code": 3,
+    "description": "Overcast",
+    "svg_path": "<path d='M9 23a5.5 5.5 0 0 1-.7-10.96A7 7 0 0 1 22 14a4.5 4.5 0 0 1-.5 9z'/>"
+  },
+  {
+    "weather_code": 45,
+    "description": "Fog",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7M6 23h20M9 27h14'/>"
+  },
+  {
+    "weather_code": 48,
+    "description": "Rime fog",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7M6 23h20M9 27h14'/>"
+  },
+  {
+    "weather_code": 51,
+    "description": "Light drizzle",
+    "svg_path": "<path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M11 24v2M16 24v3M21 24v2'/>"
+  },
+  {
+    "weather_code": 53,
+    "description": "Drizzle",
+    "svg_path": "<path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M11 24v2M16 24v3M21 24v2'/>"
+  },
+  {
+    "weather_code": 55,
+    "description": "Dense drizzle",
+    "svg_path": "<path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M11 24v2M16 24v3M21 24v2'/>"
+  },
+  {
+    "weather_code": 56,
+    "description": "Freezing drizzle",
+    "svg_path": "<path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M11 24v2M16 24v3M21 24v2'/>"
+  },
+  {
+    "weather_code": 57,
+    "description": "Freezing drizzle",
+    "svg_path": "<path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M11 24v2M16 24v3M21 24v2'/>"
+  },
+  {
+    "weather_code": 61,
+    "description": "Slight rain",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 63,
+    "description": "Rain",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 65,
+    "description": "Heavy rain",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 66,
+    "description": "Freezing rain",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 67,
+    "description": "Freezing rain",
+    "svg_path": "<path d='M9 18a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 11a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 71,
+    "description": "Slight snow",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 73,
+    "description": "Snow",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 75,
+    "description": "Heavy snow",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 77,
+    "description": "Snow grains",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 80,
+    "description": "Slight showers",
+    "svg_path": "<path d='M11 6a4 4 0 0 1 3.4 6'/><path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 81,
+    "description": "Showers",
+    "svg_path": "<path d='M11 6a4 4 0 0 1 3.4 6'/><path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 82,
+    "description": "Violent showers",
+    "svg_path": "<path d='M11 6a4 4 0 0 1 3.4 6'/><path d='M9 19a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 12a4 4 0 0 1 .3 7'/><path d='M10 23l-1.5 4M16 23l-1.5 4M22 23l-1.5 4'/>"
+  },
+  {
+    "weather_code": 85,
+    "description": "Snow showers",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 86,
+    "description": "Heavy snow showers",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M11 22v3M9.5 23.5h3M16 25v3M14.5 26.5h3M21 22v3M19.5 23.5h3'/>"
+  },
+  {
+    "weather_code": 95,
+    "description": "Thunderstorm",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M15 19l-3 5h4l-3 5'/>"
+  },
+  {
+    "weather_code": 96,
+    "description": "Thunderstorm with hail",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M15 19l-3 5h4l-3 5'/>"
+  },
+  {
+    "weather_code": 99,
+    "description": "Thunderstorm with hail",
+    "svg_path": "<path d='M9 17a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 21 10a4 4 0 0 1 .3 7'/><path d='M15 19l-3 5h4l-3 5'/>"
+  }
+]
