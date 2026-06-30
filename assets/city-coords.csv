@@ -1,3 +1,4 @@
+city,country,region,lat,lon
 Vancouver,Canada,North America,49.28,-123.12
 Victoria,Canada,North America,48.43,-123.37
 Calgary,Canada,North America,51.05,-114.07
@@ -98,4 +99,4 @@ Brisbane,Australia,Oceania,-27.47,153.03
 Perth,Australia,Oceania,-31.95,115.86
 Auckland,New Zealand,Oceania,-36.85,174.76
 Wellington,New Zealand,Oceania,-41.29,174.78
-Reykjavík,Iceland,Europe,64,-22
+ReykjavÃ­k,Iceland,Europe,64,-22
